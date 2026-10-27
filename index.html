@@ -31,6 +31,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Hide right-side scroll slider / scrollbar for all devices and browsers */
+      html, body, #root, * {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+      ::-webkit-scrollbar, *::-webkit-scrollbar {
+        display: none !important;
+        width: 0px !important;
+        height: 0px !important;
+        background: transparent !important;
+        -webkit-appearance: none !important;
+      }
+      ::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb,
+      ::-webkit-scrollbar-track, *::-webkit-scrollbar-track {
+        display: none !important;
+        background: transparent !important;
+      }
+    </style>
   </head>
   <body class="bg-[#081426] text-white antialiased selection:bg-[#FFCC00] selection:text-[#081426] min-h-screen overflow-x-hidden">
     <div id="root"></div>
