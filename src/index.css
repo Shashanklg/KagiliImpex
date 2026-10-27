@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #081426;
+  --color-navy-alt: #0B1F3A;
+  --color-navy-card: #0D203D;
+  --color-royal: #174EA6;
+  --color-yellow: #FFCC00;
+  --color-yellow-hover: #FFE043;
+  --color-yellow-active: #E5BD00;
+}
+
+@layer base {
+  :root {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Kannada', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #FFFFFF;
+    background-color: #081426;
+  }
+
+  html {
+    background-color: #081426;
+    color: #FFFFFF;
+  }
+
+  body {
+    background-color: #081426;
+    color: #FFFFFF;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Noto Sans Kannada', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Support clean rendering of Kannada diacritics */
+  [lang="kn"] {
+    line-height: 1.65;
+  }
+}
+
+/* Mobile-first viewport sizing and zero horizontal overflow */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent unwanted browser horizontal scrollbar while keeping natural vertical scrolling */
+html, body {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* Safe area support for iOS home indicator */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
