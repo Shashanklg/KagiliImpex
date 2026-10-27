@@ -38,8 +38,8 @@ export const GINGER_CORE_DATA = {
   whatsappUrl: 'https://wa.me/917892204388',
   logoUrl: '/assets/aistudio/WhatsApp_Image_2026-10-27_at_2.28.08_PM_0e1987e4.jpeg',
   heroImageUrl: '/assets/aistudio/WhatsApp_Image_2026-10-27_at_2.28.05_PM_a3512df0.jpeg',
-  wholeProductImageUrl: '/assets/aistudio/WhatsApp_Image_2026-10-27_at_2.27.48_PM_476f5cb7.jpeg',
-  crushedProductImageUrl: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80',
+  wholeProductImageUrl: '/assets/aistudio/WhatsApp_Image_2026-10-27_at_10.58.43_PM_9db5f25a.jpeg',
+  crushedProductImageUrl: '/assets/aistudio/WhatsApp_Image_2026-10-27_at_2.27.48_PM_476f5cb7.jpeg',
 };
 
 export const EXPORT_PRODUCTS: ExportProductItem[] = [

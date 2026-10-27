@@ -54,11 +54,11 @@ export const FeaturedProduct: React.FC<ProductSectionProps> = ({ onEnquireClick 
           <div className="bg-[#0B1F3A] rounded-2xl border border-[#174EA6]/50 shadow-xl overflow-hidden flex flex-col justify-between transition-all hover:border-[#174EA6] w-full">
             <div>
               {/* Product Photo & Badges */}
-              <div className="relative h-52 xs:h-60 sm:h-72 w-full overflow-hidden bg-[#081426] border-b border-[#174EA6]/30">
+              <div className="relative h-56 xs:h-64 sm:h-72 w-full overflow-hidden bg-white border-b border-[#174EA6]/30 flex items-center justify-center">
                 <img
                   src={GINGER_CORE_DATA.wholeProductImageUrl}
-                  alt="Fresh whole Indian ginger rhizomes in harvest crates"
-                  className="w-full h-full object-cover object-center"
+                  alt="Whole ginger rhizomes sourced from India - HS 091011"
+                  className="w-full h-full object-contain p-3"
                   loading="lazy"
                 />
                 <div className="absolute top-3 left-3 flex flex-wrap gap-2">
@@ -150,7 +150,7 @@ export const FeaturedProduct: React.FC<ProductSectionProps> = ({ onEnquireClick 
           <div className="bg-[#0B1F3A] rounded-2xl border border-[#174EA6]/50 shadow-xl overflow-hidden flex flex-col justify-between transition-all hover:border-[#174EA6] w-full">
             <div>
               {/* Product Photo & Badges */}
-              <div className="relative h-52 xs:h-60 sm:h-72 w-full overflow-hidden bg-[#081426] border-b border-[#174EA6]/30">
+              <div className="relative h-56 xs:h-64 sm:h-72 w-full overflow-hidden bg-[#081426] border-b border-[#174EA6]/30">
                 {!crushedImageError ? (
                   <img
                     src={GINGER_CORE_DATA.crushedProductImageUrl}

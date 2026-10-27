@@ -88,21 +88,24 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
 
           {/* Right Column: User-provided Ginger Harvest Photograph */}
           <div className="lg:col-span-6 relative w-full min-w-0">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#174EA6]/40 bg-[#0B1F3A]">
-              <img
-                src={GINGER_CORE_DATA.heroImageUrl}
-                alt="Fresh whole Indian ginger rhizomes in harvest crates"
-                className="w-full h-[220px] xs:h-[270px] sm:h-[360px] lg:h-[460px] object-cover object-center"
-                loading="eager"
-              />
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#174EA6]/40 bg-[#0B1F3A] flex flex-col">
+              {/* Full unobstructed ginger photo */}
+              <div className="relative w-full h-[250px] xs:h-[290px] sm:h-[360px] lg:h-[430px] overflow-hidden bg-[#081426]">
+                <img
+                  src={GINGER_CORE_DATA.heroImageUrl}
+                  alt="Fresh whole Indian ginger rhizomes in harvest crates"
+                  className="w-full h-full object-cover object-center"
+                  loading="eager"
+                />
+              </div>
 
-              {/* Product Information Overlay */}
-              <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 p-3 sm:p-3.5 rounded-xl bg-[#081426]/95 backdrop-blur-md border border-[#174EA6]/50 shadow-xl flex items-center justify-between gap-3">
-                <div className="min-w-0">
-                  <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#FFCC00] block truncate">
+              {/* Product Information Strip cleanly placed underneath so text never covers the photo */}
+              <div className="p-3 sm:p-4 bg-[#050E1B] border-t border-[#174EA6]/40 flex items-center justify-between gap-3">
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#FFCC00] block">
                     {h.originTag}
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-white block truncate">
+                  <span className="text-xs sm:text-sm font-bold text-white block">
                     {h.imageCaption}
                   </span>
                 </div>
