@@ -14,6 +14,7 @@ export interface Translations {
     titleLine1: string;
     titleLine2: string;
     description: string;
+    whatsappBtn: string;
     exploreBtn: string;
     contactBtn: string;
     trust1: string;
@@ -137,6 +138,7 @@ export const translations: Record<Language, Translations> = {
       titleLine2: 'GLOBAL MARKETS.',
       description:
         'Connecting international spice and fresh produce buyers with authentic Indian ginger sourced directly from the agricultural heartland of Hassan, Karnataka. Direct communication, verified credentials, and transparent commercial terms.',
+      whatsappBtn: 'ENQUIRE ON WHATSAPP',
       exploreBtn: 'OUR PRODUCTS',
       contactBtn: 'CONTACT US',
       trust1: 'Exporting from Hassan, Karnataka',
@@ -182,7 +184,7 @@ export const translations: Record<Language, Translations> = {
         form: 'Fresh whole ginger rhizomes',
         packaging: 'Discussed based on buyer requirements (Cartons / crates / mesh bags)',
         pricing: 'Please enquire (Commercial spot quotation on request)',
-        btnText: 'ENQUIRE NOW',
+        btnText: 'Enquire About Whole Ginger',
       },
       crushed: {
         name: 'Ginger (Crushed/Ground)',
@@ -193,7 +195,7 @@ export const translations: Record<Language, Translations> = {
         form: 'Crushed pieces or ground ginger powder',
         packaging: 'Discussed based on buyer requirements (Food-grade lined sacks)',
         pricing: 'Please enquire (Commercial spot quotation on request)',
-        btnText: 'ENQUIRE NOW',
+        btnText: 'Enquire About Crushed/Ground Ginger',
       },
     },
     contact: {
@@ -263,6 +265,7 @@ export const translations: Record<Language, Translations> = {
       titleLine2: 'ಜಾಗತಿಕ ಮಾರುಕಟ್ಟೆಗಳು.',
       description:
         'ಕರ್ನಾಟಕದ ಹಾಸನ ಜಿಲ್ಲೆಯ ಸಮೃದ್ಧ ಕೃಷಿ ಪ್ರದೇಶಗಳಿಂದ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಶುದ್ಧ ಭಾರತೀಯ ಶುಂಠಿ ರಫ್ತು. ನೇರ ವ್ಯಾಪಾರ ಸಂವಹನ, ಅಧಿಕೃತ ದಾಖಲೆಗಳು ಮತ್ತು ಪಾರದರ್ಶಕ ವ್ಯಾಪಾರ ನಿಯಮಗಳು.',
+      whatsappBtn: 'WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ',
       exploreBtn: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
       contactBtn: 'ಸಂಪರ್ಕಿಸಿ',
       trust1: 'ಹಾಸನ, ಕರ್ನಾಟಕದಿಂದ ನೇರ ರಫ್ತು',
@@ -308,7 +311,7 @@ export const translations: Record<Language, Translations> = {
         form: 'ತಾಜಾ ಇಡೀ ಶುಂಠಿ ಕೊಂಬುಗಳು',
         packaging: 'ಖರೀದಿದಾರರ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ (ಪೆಟ್ಟಿಗೆಗಳು / ಕ್ರೇಟುಗಳು / ಮೆಶ್ ಚೀಲಗಳು)',
         pricing: 'ದಯವಿಟ್ಟು ವಿಚಾರಿಸಿ (ಸ್ಪಾಟ್ ದರವನ್ನು ಕೋರಿಕೆಯ ಮೇರೆಗೆ ನೀಡಲಾಗುತ್ತದೆ)',
-        btnText: 'ಈಗಲೇ ವಿಚಾರಿಸಿ',
+        btnText: 'ಇಡೀ ಶುಂಠಿಯ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ',
       },
       crushed: {
         name: 'ಶುಂಠಿ (ಪುಡಿಮಾಡಿದ/ಪುಡಿ / Ginger Crushed/Ground)',
@@ -319,7 +322,7 @@ export const translations: Record<Language, Translations> = {
         form: 'ಪುಡಿಮಾಡಿದ ಚೂರುಗಳು ಅಥವಾ ಒಣ ಶುಂಠಿ ಪುಡಿ',
         packaging: 'ಖರೀದಿದಾರರ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ (ಫುಡ್ ಗ್ರೇಡ್ ಲೈನರ್ ಹೊಂದಿರುವ ಚೀಲಗಳು)',
         pricing: 'ದಯವಿಟ್ಟು ವಿಚಾರಿಸಿ (ಸ್ಪಾಟ್ ದರವನ್ನು ಕೋರಿಕೆಯ ಮೇರೆಗೆ ನೀಡಲಾಗುತ್ತದೆ)',
-        btnText: 'ಈಗಲೇ ವಿಚಾರಿಸಿ',
+        btnText: 'ಪುಡಿಮಾಡಿದ ಶುಂಠಿಯ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ',
       },
     },
     contact: {

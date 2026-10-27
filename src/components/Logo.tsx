@@ -27,16 +27,16 @@ export const Logo: React.FC<LogoProps> = ({
 
   // Size dimensions for circular emblem
   const sizeClasses = {
-    sm: 'w-10 h-10',
-    md: 'w-12 h-12 sm:w-13 sm:h-13',
-    lg: 'w-16 h-16 sm:w-20 sm:h-20',
+    sm: 'w-8 h-8 sm:w-10 sm:h-10',
+    md: 'w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12',
+    lg: 'w-14 h-14 sm:w-20 sm:h-20',
   }[size];
 
   // Official logo image path provided by user (2nd photo)
   const logoSrc = '/assets/aistudio/WhatsApp_Image_2026-10-27_at_2.28.08_PM_0e1987e4.jpeg';
 
   return (
-    <div className={`flex items-center gap-2 sm:gap-3 select-none min-w-0 ${className}`}>
+    <div className={`flex items-center gap-1.5 xs:gap-2 sm:gap-3 select-none min-w-0 ${className}`}>
       {/* Official circular logo badge */}
       <div
         className={`relative ${sizeClasses} rounded-full overflow-hidden shrink-0 bg-[#0B1F3A] flex items-center justify-center shadow-md transition-transform hover:scale-102 ${
@@ -63,14 +63,14 @@ export const Logo: React.FC<LogoProps> = ({
         <div className="flex flex-col text-left min-w-0">
           <div className="flex items-center gap-1 sm:gap-1.5 leading-none">
             <span
-              className={`font-display font-extrabold text-sm sm:text-lg tracking-wider ${
+              className={`font-display font-extrabold text-xs xs:text-sm sm:text-lg tracking-wider ${
                 isLight ? 'text-[#0B1F3A]' : 'text-white'
               }`}
             >
               KAGILI
             </span>
             <span
-              className="font-display font-black text-sm sm:text-lg tracking-wider text-[#FFCC00]"
+              className="font-display font-black text-xs xs:text-sm sm:text-lg tracking-wider text-[#FFCC00]"
             >
               IMPEX
             </span>

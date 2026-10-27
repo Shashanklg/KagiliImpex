@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-300 hover:text-[#FFCC00] transition-colors py-1 block"
+                    className="text-slate-300 hover:text-[#FFCC00] transition-colors py-2 min-h-[40px] flex items-center"
                   >
                     {link.name}
                   </a>
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
                 <Phone className="w-4 h-4 text-[#FFCC00] shrink-0" />
                 <a
                   href={`tel:${GINGER_CORE_DATA.phoneTel}`}
-                  className="font-bold text-white hover:text-[#FFCC00] transition-colors font-mono py-1 min-h-[36px] flex items-center"
+                  className="font-bold text-white hover:text-[#FFCC00] transition-colors font-mono py-1 min-h-[44px] flex items-center"
                 >
                   {GINGER_CORE_DATA.phone}
                 </a>
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-[#FFCC00] transition-colors text-white font-medium py-1 min-h-[36px] flex items-center"
+                  className="hover:text-[#FFCC00] transition-colors text-white font-medium py-1 min-h-[44px] flex items-center"
                 >
                   WhatsApp: +91 7892204388
                 </a>
@@ -111,7 +111,7 @@ export const Footer: React.FC = () => {
             <button
               type="button"
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 hover:text-[#FFCC00] transition-colors cursor-pointer py-1.5"
+              className="flex items-center gap-1.5 hover:text-[#FFCC00] transition-colors cursor-pointer py-2 min-h-[44px]"
             >
               <span>{f.backToTop}</span>
               <ArrowUp className="w-3.5 h-3.5" />
