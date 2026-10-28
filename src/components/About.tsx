@@ -1,5 +1,4 @@
-import React from 'react';
-import { MapPin, UserCheck, Phone, FileText } from 'lucide-react';
+import { MapPin, UserCheck, Phone, FileText, Globe } from 'lucide-react';
 import { GINGER_CORE_DATA } from '../data/productData';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -29,47 +28,14 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Focused Company Overview (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 text-slate-200 text-sm sm:text-base leading-relaxed">
-            <div className="p-6 sm:p-7 rounded-2xl bg-[#081426] border border-[#174EA6]/40 shadow-sm space-y-4">
+          <div className="lg:col-span-7 text-slate-200 text-sm sm:text-base leading-relaxed">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#081426] border border-[#174EA6]/40 shadow-sm space-y-4">
               <p className="leading-relaxed text-slate-200">
                 {a.p1}
               </p>
               <p className="leading-relaxed text-slate-300">
                 {a.p2}
               </p>
-            </div>
-
-            {/* 3 Compact Feature Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-              <div className="p-4 sm:p-5 rounded-xl bg-[#081426] border border-[#174EA6]/40 shadow-sm">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#FFCC00] mb-2.5" />
-                <h4 className="font-bold text-white text-sm mb-1">
-                  {a.locationTitle}
-                </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {a.locationDesc}
-                </p>
-              </div>
-
-              <div className="p-4 sm:p-5 rounded-xl bg-[#081426] border border-[#174EA6]/40 shadow-sm">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#FFCC00] mb-2.5" />
-                <h4 className="font-bold text-white text-sm mb-1">
-                  {a.growerTitle}
-                </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {a.growerDesc}
-                </p>
-              </div>
-
-              <div className="p-4 sm:p-5 rounded-xl bg-[#081426] border border-[#174EA6]/40 shadow-sm">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#FFCC00] mb-2.5" />
-                <h4 className="font-bold text-white text-sm mb-1">
-                  {a.commTitle}
-                </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {a.commDesc}
-                </p>
-              </div>
             </div>
           </div>
 
@@ -79,11 +45,11 @@ export const About: React.FC = () => {
               
               {/* Logo Emblem Header */}
               <div className="border-b border-slate-800 pb-4 sm:pb-5 flex items-center gap-3 sm:gap-4 min-w-0">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shrink-0 bg-[#0B1F3A] ring-2 ring-[#174EA6]/50 shadow-sm flex items-center justify-center p-0.5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shrink-0 bg-[#081426] ring-2 ring-[#FFCC00] shadow-md flex items-center justify-center p-0.5">
                   <img
                     src={GINGER_CORE_DATA.logoUrl}
                     alt="KAGILI IMPEX Official Circular Emblem"
-                    className="w-full h-full object-cover object-center rounded-full"
+                    className="w-full h-full object-contain rounded-full"
                   />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -129,6 +95,21 @@ export const About: React.FC = () => {
                     <p className="font-medium text-slate-200 leading-relaxed text-xs break-words">
                       {GINGER_CORE_DATA.address}
                     </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2.5 sm:gap-3 p-3 rounded-lg bg-[#0B1F3A] border border-[#174EA6]/30 min-w-0">
+                  <Globe className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <span className="text-[11px] text-slate-400 block">{a.websiteLabel}</span>
+                    <a
+                      href="https://www.kagilitraders.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono font-bold text-[#FFCC00] hover:underline text-xs sm:text-sm block"
+                    >
+                      www.kagilitraders.com
+                    </a>
                   </div>
                 </div>
 

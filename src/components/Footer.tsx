@@ -1,5 +1,4 @@
-import React from 'react';
-import { Phone, MapPin, ArrowUp, UserCheck, MessageSquare, FileText } from 'lucide-react';
+import { Phone, MapPin, ArrowUp, UserCheck, MessageSquare, FileText, Globe } from 'lucide-react';
 import { Logo } from './Logo';
 import { GINGER_CORE_DATA } from '../data/productData';
 import { useLanguage } from '../context/LanguageContext';
@@ -33,6 +32,17 @@ export const Footer: React.FC = () => {
             <div className="pt-2 text-xs font-mono text-[#FFCC00] flex items-center gap-2">
               <FileText className="w-3.5 h-3.5 shrink-0" />
               <span>GSTIN: {GINGER_CORE_DATA.gstin}</span>
+            </div>
+            <div className="text-xs text-slate-300 flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5 text-[#FFCC00] shrink-0" />
+              <a
+                href="https://www.kagilitraders.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white hover:text-[#FFCC00] font-mono transition-colors"
+              >
+                www.kagilitraders.com
+              </a>
             </div>
           </div>
 
@@ -86,8 +96,8 @@ export const Footer: React.FC = () => {
                 <a
                   href={`https://wa.me/917892204388?text=${encodeURIComponent(
                     language === 'kn'
-                      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಶುಂಠಿ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
-                      : 'Hello Karna, I am contacting Kagili Impex Private Limited regarding ginger export.'
+                      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
+                      : 'Hello Karna, I am contacting Kagili Impex Private Limited regarding agricultural export.'
                   )}`}
                   target="_blank"
                   rel="noreferrer"

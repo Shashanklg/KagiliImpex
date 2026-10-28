@@ -16,12 +16,6 @@ export interface Translations {
     description: string;
     whatsappBtn: string;
     exploreBtn: string;
-    contactBtn: string;
-    trust1: string;
-    trust2: string;
-    trust3: string;
-    originTag: string;
-    imageCaption: string;
   };
   about: {
     badge: string;
@@ -29,18 +23,13 @@ export interface Translations {
     description: string;
     p1: string;
     p2: string;
-    locationTitle: string;
-    locationDesc: string;
-    growerTitle: string;
-    growerDesc: string;
-    commTitle: string;
-    commDesc: string;
     credentialsBadge: string;
     enterpriseType: string;
     contactPersonLabel: string;
     phoneLabel: string;
     addressLabel: string;
     gstinLabel: string;
+    websiteLabel: string;
   };
   products: {
     badge: string;
@@ -48,28 +37,8 @@ export interface Translations {
     description: string;
     hsVerificationNote: string;
     enquireBtn: string;
-    whole: {
-      name: string;
-      hsCode: string;
-      tag: string;
-      description: string;
-      origin: string;
-      form: string;
-      packaging: string;
-      pricing: string;
-      btnText: string;
-    };
-    crushed: {
-      name: string;
-      hsCode: string;
-      tag: string;
-      description: string;
-      origin: string;
-      form: string;
-      packaging: string;
-      pricing: string;
-      btnText: string;
-    };
+    originLabel: string;
+    hsLabel: string;
   };
   contact: {
     badge: string;
@@ -80,6 +49,7 @@ export interface Translations {
     phoneLabel: string;
     addressLabel: string;
     gstinLabel: string;
+    websiteLabel: string;
     callBtn: string;
     whatsappBtn: string;
     formTitle: string;
@@ -91,9 +61,8 @@ export interface Translations {
     contactPlaceholder: string;
     contactError: string;
     productLabel: string;
-    productWhole: string;
-    productCrushed: string;
-    productBoth: string;
+    productPlaceholder: string;
+    productError: string;
     quantityLabel: string;
     quantityPlaceholder: string;
     messageLabel: string;
@@ -103,6 +72,11 @@ export interface Translations {
     formNote: string;
     modalTitle: string;
     modalSubtitle: string;
+    modalBuyerLabel: string;
+    modalContactLabel: string;
+    modalProductLabel: string;
+    modalQuantityLabel: string;
+    modalMessageLabel: string;
     modalWhatsAppBtn: string;
     modalCopyBtn: string;
     modalCopied: string;
@@ -127,126 +101,100 @@ export const translations: Record<Language, Translations> = {
     nav: {
       home: 'Home',
       about: 'About Us',
-      products: 'Our Products',
+      products: 'Products',
       contact: 'Contact',
-      quoteBtn: 'REQUEST A QUOTE',
-      callDirect: 'Call Karna',
+      quoteBtn: 'Request Quote',
+      callDirect: 'Call Directly',
     },
     hero: {
-      badge: 'INDIAN GINGER EXPORTER',
-      titleLine1: 'INDIAN GINGER.',
-      titleLine2: 'GLOBAL MARKETS.',
+      badge: 'INDIAN AGRICULTURAL EXPORTERS',
+      titleLine1: 'INDIAN AGRICULTURAL PRODUCE.',
+      titleLine2: 'GLOBAL COMMERCE.',
       description:
-        'Connecting international spice and fresh produce buyers with authentic Indian ginger sourced directly from the agricultural heartland of Hassan, Karnataka. Direct communication, verified credentials, and transparent commercial terms.',
+        'Connecting international importers and commercial buyers with authentic Indian ginger, premium spices, and durable, long shelf-life agricultural commodities sourced directly from Hassan, Karnataka. Direct communication, verified credentials, and transparent commercial terms.',
       whatsappBtn: 'ENQUIRE ON WHATSAPP',
-      exploreBtn: 'OUR PRODUCTS',
-      contactBtn: 'CONTACT US',
-      trust1: 'Exporting from Hassan, Karnataka',
-      trust2: 'Whole & Crushed/Ground Products',
-      trust3: 'Transparent Commercial Terms',
-      originTag: 'Origin: India',
-      imageCaption: 'Fresh Whole Indian Ginger Harvest Crates',
+      exploreBtn: 'VIEW PRODUCTS',
     },
     about: {
       badge: 'ABOUT US',
-      title: 'Connecting Indian Ginger Growers With Global Buyers',
+      title: 'Connecting Indian Agricultural Produce With Global Importers',
       description:
-        'Kagili Impex Private Limited is an Indian agricultural export enterprise focused exclusively on exporting high-grade ginger to overseas markets.',
-      p1: 'Based in Hassan, Karnataka — one of India’s most fertile ginger cultivation belts — Kagili Impex Private Limited bridges local growers with international produce importers, food distributors, and spice processors.',
-      p2: 'We believe in clear, straightforward business relationships. Rather than making speculative claims or unconfirmed promises, every inquiry is answered directly with authentic availability, honest specifications, and realistic shipping timelines.',
-      locationTitle: 'Hassan, Karnataka Location',
-      locationDesc: 'Located at the heart of South India’s premier ginger producing region.',
-      growerTitle: 'Direct Grower Networks',
-      growerDesc: 'Sourcing genuine produce directly from farms and regional harvest centers.',
-      commTitle: 'Transparent Communication',
-      commDesc: 'Prompt commercial responses with verified quantities and delivery terms.',
+        'Kagili Impex Private Limited (www.kagilitraders.com) is an Indian agricultural export enterprise coordinating farm-sourced produce and spices for international commercial buyers.',
+      p1: 'Based in Hassan, Karnataka — at the heart of South India’s fertile agricultural and spice cultivation belt — Kagili Impex Private Limited bridges regional growers with overseas food importers, wholesale distributors, and commercial processors seeking fresh and processed ginger alongside long shelf-life spices and commodities.',
+      p2: 'We operate with strict commercial transparency. We provide verifiable quality, accurate moisture-barrier packaging, realistic maritime transit timelines, and straightforward container pricing tailored to your import destination.',
       credentialsBadge: 'REGISTERED ENTERPRISE',
-      enterpriseType: 'Agricultural Produce Import & Export',
+      enterpriseType: 'Indian Agricultural Exporter (Pvt. Ltd.)',
       contactPersonLabel: 'Contact Person',
-      phoneLabel: 'Direct Phone / WhatsApp',
+      phoneLabel: 'Commercial Phone',
       addressLabel: 'Registered Address',
-      gstinLabel: 'Goods & Services Tax (GSTIN)',
+      gstinLabel: 'Government GSTIN',
+      websiteLabel: 'Official Website',
     },
     products: {
-      badge: 'OUR PRODUCTS',
-      title: 'Export Ginger Products',
+      badge: 'EXPORT PORTFOLIO',
+      title: 'Agricultural & Spice Export Categories',
       description:
-        'We supply Indian ginger in two essential trade forms: Whole Ginger rhizomes and Crushed/Ground ginger. Commercial specifications, packaging, and volume are discussed transparently per buyer requirement.',
+        'Direct farm-sourced Indian ginger, selected spices, and long shelf-life agricultural commodities prepared for overseas containerized export.',
       hsVerificationNote:
-        'Customs Notice: Harmonized System (HS) codes (091011 & 091012) are provided as standard international trade references. Exact classification should be confirmed with Indian customs/DGFT or the buyer’s import clearing agent for specific shipments.',
-      enquireBtn: 'ENQUIRE NOW',
-      whole: {
-        name: 'Ginger (Whole)',
-        hsCode: '091011',
-        tag: 'Raw Agricultural Produce',
-        description: 'Whole ginger rhizomes for buyers seeking ginger in whole form.',
-        origin: 'India (Hassan, Karnataka)',
-        form: 'Fresh whole ginger rhizomes',
-        packaging: 'Discussed based on buyer requirements (Cartons / crates / mesh bags)',
-        pricing: 'Please enquire (Commercial spot quotation on request)',
-        btnText: 'Enquire About Whole Ginger',
-      },
-      crushed: {
-        name: 'Ginger (Crushed/Ground)',
-        hsCode: '091012',
-        tag: 'Processed Spice Form',
-        description: 'Crushed or ground ginger for buyers seeking ginger in processed form.',
-        origin: 'India',
-        form: 'Crushed pieces or ground ginger powder',
-        packaging: 'Discussed based on buyer requirements (Food-grade lined sacks)',
-        pricing: 'Please enquire (Commercial spot quotation on request)',
-        btnText: 'Enquire About Crushed/Ground Ginger',
-      },
+        'Customs Notice: Harmonized System (HS) codes are provided for international trade reference. Please confirm destination country customs classifications and phytosanitary import regulations with your customs clearing agent prior to commercial dispatch.',
+      enquireBtn: 'Enquire for Export',
+      originLabel: 'Origin',
+      hsLabel: 'HS Code Reference',
     },
     contact: {
-      badge: 'CONTACT US',
-      title: 'Discuss Your Ginger Import Requirements',
+      badge: 'GET IN TOUCH',
+      title: 'Direct Commercial Inquiries',
       description:
-        'Reach out directly to our commercial team in Hassan, Karnataka. We welcome trade inquiries from overseas importers, distributors, and food processors.',
-      cardTitle: 'Official Enterprise Details',
-      contactPersonLabel: 'Contact Person',
+        'Reach out to Karna at Kagili Impex Private Limited for product specifications, volume availability, and export pricing.',
+      cardTitle: 'ENTERPRISE CREDENTIALS',
+      contactPersonLabel: 'Managing Representative',
       phoneLabel: 'Direct Phone / WhatsApp',
-      addressLabel: 'Registered Address',
-      gstinLabel: 'GSTIN Number',
+      addressLabel: 'Registered Office',
+      gstinLabel: 'Tax Registration (GSTIN)',
+      websiteLabel: 'Official Portal',
       callBtn: 'Call +91 7892204388',
-      whatsappBtn: 'Message on WhatsApp',
-      formTitle: 'Submit Trade Inquiry',
-      formSubtitle: 'Fill in your requirements below for prompt direct communication.',
-      nameLabel: 'Your Full Name / Company Name *',
-      namePlaceholder: 'e.g. John Doe / Global Foods LLC',
+      whatsappBtn: 'Chat on WhatsApp',
+      formTitle: 'Commercial Inquiry Form',
+      formSubtitle: 'Fill in your details below for a prompt export quote and availability report.',
+      nameLabel: 'Your Name / Company Name *',
+      namePlaceholder: 'Enter your name or company name',
       nameError: 'Please enter your name or enterprise name',
       contactLabel: 'Email Address or Phone Number *',
-      contactPlaceholder: 'e.g. buyer@example.com or +1 234 567 8900',
+      contactPlaceholder: 'Enter your email address or phone number',
       contactError: 'Please enter a valid email or phone number',
-      productLabel: 'Product Interested In *',
-      productWhole: 'Ginger (Whole) [HS 091011]',
-      productCrushed: 'Ginger (Crushed/Ground) [HS 091012]',
-      productBoth: 'Both Products (Whole & Crushed/Ground)',
-      quantityLabel: 'Target Quantity / Volume (Optional)',
-      quantityPlaceholder: 'e.g. 1 x 20ft / 40ft Container, 10 MT, or trial shipment',
-      messageLabel: 'Specific Requirements or Port of Destination (Optional)',
-      messagePlaceholder: 'Please mention your destination port, packaging preferences, or any specific questions...',
+      productLabel: 'Product Category or Commodity *',
+      productPlaceholder: 'Enter product category or commodity name',
+      productError: 'Please enter the product or commodity you wish to enquire about',
+      quantityLabel: 'Required Quantity / Target Volume (Optional)',
+      quantityPlaceholder: 'Enter target quantity / required volume',
+      messageLabel: 'Destination Port or Specific Requirements (Optional)',
+      messagePlaceholder: 'Enter your message or specific requirements',
       submitBtn: 'Review & Send Inquiry',
-      whatsappSubmitBtn: 'Send Inquiry via WhatsApp',
-      formNote: 'All inquiries receive direct commercial attention from Karna at Kagili Impex Private Limited.',
-      modalTitle: 'Inquiry Summary Ready',
-      modalSubtitle: 'Choose how you would like to submit your inquiry directly to Kagili Impex:',
-      modalWhatsAppBtn: 'Send Directly to WhatsApp (+91 7892204388)',
+      whatsappSubmitBtn: 'Send via WhatsApp',
+      formNote: 'All commercial inquiries receive prompt attention from Karna at Kagili Impex Private Limited.',
+      modalTitle: 'Inquiry Summary',
+      modalSubtitle: 'Review your details before transmitting to Kagili Impex via WhatsApp:',
+      modalBuyerLabel: 'Buyer / Company',
+      modalContactLabel: 'Contact Info',
+      modalProductLabel: 'Product / Commodity',
+      modalQuantityLabel: 'Target Volume',
+      modalMessageLabel: 'Notes / Destination',
+      modalWhatsAppBtn: 'Send Directly to WhatsApp',
       modalCopyBtn: 'Copy Inquiry to Clipboard',
       modalCopied: 'Copied to Clipboard!',
       modalCloseBtn: 'Close',
     },
     footer: {
       description:
-        'Kagili Impex Private Limited is a registered Indian export enterprise dedicated to supplying premium quality fresh whole ginger and crushed/ground ginger to global markets.',
-      navHeading: 'QUICK NAVIGATION',
-      contactHeading: 'CONTACT & LOCATION',
+        'Kagili Impex Private Limited is an Indian agricultural export company supplying premium ginger, spices, and authentic long shelf-life farm produce to international buyers.',
+      navHeading: 'Quick Navigation',
+      contactHeading: 'Direct Contact',
       allRights: 'All rights reserved.',
       backToTop: 'Back to Top',
       location: 'Hassan, Karnataka, India',
     },
     mobileBar: {
-      call: 'Call Karna',
+      call: 'Call Directly',
       whatsapp: 'WhatsApp',
     },
   },
@@ -254,126 +202,100 @@ export const translations: Record<Language, Translations> = {
     nav: {
       home: 'ಮುಖಪುಟ',
       about: 'ನಮ್ಮ ಬಗ್ಗೆ',
-      products: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
+      products: 'ಉತ್ಪನ್ನಗಳು',
       contact: 'ಸಂಪರ್ಕಿಸಿ',
-      quoteBtn: 'ದರಪಟ್ಟಿ ವಿಚಾರಿಸಿ',
-      callDirect: 'ಕರ್ಣ ಅವರಿಗೆ ಕರೆ ಮಾಡಿ',
+      quoteBtn: 'ದರಪಟ್ಟಿ ವಿನಂತಿ',
+      callDirect: 'ನೇರ ಕರೆ',
     },
     hero: {
-      badge: 'ಭಾರತೀಯ ಶುಂಠಿ ರಫ್ತುದಾರರು',
-      titleLine1: 'ಭಾರತೀಯ ಶುಂಠಿ.',
+      badge: 'ಭಾರತೀಯ ಕೃಷಿ ರಫ್ತುದಾರರು',
+      titleLine1: 'ಭಾರತೀಯ ಕೃಷಿ ಉತ್ಪನ್ನಗಳು.',
       titleLine2: 'ಜಾಗತಿಕ ಮಾರುಕಟ್ಟೆಗಳು.',
       description:
-        'ಕರ್ನಾಟಕದ ಹಾಸನ ಜಿಲ್ಲೆಯ ಸಮೃದ್ಧ ಕೃಷಿ ಪ್ರದೇಶಗಳಿಂದ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಶುದ್ಧ ಭಾರತೀಯ ಶುಂಠಿ ರಫ್ತು. ನೇರ ವ್ಯಾಪಾರ ಸಂವಹನ, ಅಧಿಕೃತ ದಾಖಲೆಗಳು ಮತ್ತು ಪಾರದರ್ಶಕ ವ್ಯಾಪಾರ ನಿಯಮಗಳು.',
+        'ಕರ್ನಾಟಕದ ಹಾಸನ ಜಿಲ್ಲೆಯ ಸಮೃದ್ಧ ಕೃಷಿ ಪ್ರದೇಶಗಳಿಂದ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಶುದ್ಧ ಭಾರತೀಯ ಶುಂಠಿ, ಆಯ್ದ ಸಾಂಬಾರ ಪದಾರ್ಥಗಳು ಮತ್ತು ದೀರ್ಘಕಾಲ ಬಾಳಿಕೆ ಬರುವ ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ರಫ್ತು. ನೇರ ವ್ಯಾಪಾರ ಸಂವಹನ, ಅಧಿಕೃತ ದಾಖಲೆಗಳು ಮತ್ತು ಪಾರದರ್ಶಕ ವ್ಯಾಪಾರ ನಿಯಮಗಳು.',
       whatsappBtn: 'WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ',
-      exploreBtn: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
-      contactBtn: 'ಸಂಪರ್ಕಿಸಿ',
-      trust1: 'ಹಾಸನ, ಕರ್ನಾಟಕದಿಂದ ನೇರ ರಫ್ತು',
-      trust2: 'ಸಂಪೂರ್ಣ ಶುಂಠಿ ಮತ್ತು ಪುಡಿ/ಪುಡಿಮಾಡಿದ ಶುಂಠಿ',
-      trust3: 'ಪಾರದರ್ಶಕ ವಾಣಿಜ್ಯ ನಿಯಮಗಳು',
-      originTag: 'ಮೂಲ: ಭಾರತ',
-      imageCaption: 'ತಾಜಾ ಭಾರತೀಯ ಶುಂಠಿ ಕೊಯ್ಲು ಕ್ರೇಟುಗಳು',
+      exploreBtn: 'ಉತ್ಪನ್ನಗಳನ್ನು ನೋಡಿ',
     },
     about: {
       badge: 'ನಮ್ಮ ಬಗ್ಗೆ',
-      title: 'ಭಾರತೀಯ ಶುಂಠಿ ಬೆಳೆಗಾರರನ್ನು ಜಾಗತಿಕ ಮಾರುಕಟ್ಟೆಗೆ ಸಂಪರ್ಕಿಸುವುದು',
+      title: 'ಭಾರತೀಯ ಕೃಷಿ ಬೆಳೆಗಾರರನ್ನು ಜಾಗತಿಕ ಮಾರುಕಟ್ಟೆಗೆ ಸಂಪರ್ಕಿಸುವುದು',
       description:
-        'ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ ಹಾಸನ, ಕರ್ನಾಟಕದಲ್ಲಿ ನೆಲೆಸಿರುವ ಅಧಿಕೃತ ಭಾರತೀಯ ಕೃಷಿ ರಫ್ತು ಸಂಸ್ಥೆಯಾಗಿದ್ದು, ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಶುಂಠಿ ರಫ್ತು ಮಾಡುವುದರಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದೆ.',
-      p1: 'ದಕ್ಷಿಣ ಭಾರತದ ಪ್ರಮುಖ ಶುಂಠಿ ಕೃಷಿ ಕೇಂದ್ರವಾದ ಹಾಸನ ಜಿಲ್ಲೆಯಲ್ಲಿ ನೆಲೆಸಿರುವ ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್, ಸ್ಥಳೀಯ ಬೆಳೆಗಾರರನ್ನು ವಿದೇಶಿ ಆಹಾರ ವಿತರಕರು, ಸಗಟು ಆಮದುದಾರರು ಮತ್ತು ಸಾಂಬಾರ ಪದಾರ್ಥ ಸಂಸ್ಕರಣಾಕಾರರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ.',
+        'ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ (www.kagilitraders.com) ಹಾಸನ, ಕರ್ನಾಟಕದಲ್ಲಿ ನೆಲೆಸಿರುವ ಅಧಿಕೃತ ಭಾರತೀಯ ಕೃಷಿ ರಫ್ತು ಸಂಸ್ಥೆಯಾಗಿದ್ದು, ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಶುಂಠಿ ಹಾಗೂ ದೀರ್ಘಕಾಲಿಕ ಕೃಷಿ ಉತ್ಪನ್ನಗಳನ್ನು ಪೂರೈಸುತ್ತದೆ.',
+      p1: 'ದಕ್ಷಿಣ ಭಾರತದ ಪ್ರಮುಖ ಶುಂಠಿ ಮತ್ತು ಕೃಷಿ ಬೆಳೆಗಳ ಕೇಂದ್ರವಾದ ಹಾಸನ ಜಿಲ್ಲೆಯಲ್ಲಿ ನೆಲೆಸಿರುವ ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್, ಸ್ಥಳೀಯ ಬೆಳೆಗಾರರನ್ನು ವಿದೇಶಿ ಆಹಾರ ವಿತರಕರು, ಸಗಟು ಆಮದುದಾರರು ಮತ್ತು ಸಂಸ್ಕರಣಾಕಾರರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ.',
       p2: 'ನಾವು ಪ್ರಾಮಾಣಿಕ ಮತ್ತು ಪಾರದರ್ಶಕ ವ್ಯಾಪಾರ ಸಂಬಂಧಗಳಲ್ಲಿ ನಂಬಿಕೆ ಇಡುತ್ತೇವೆ. ಯಾವುದೇ ಊಹಾತ್ಮಕ ಭರವಸೆಗಳನ್ನು ನೀಡದೆ, ಲಭ್ಯವಿರುವ ಗುಣಮಟ್ಟ, ನಿಖರವಾದ ಪ್ರಮಾಣ ಮತ್ತು ಸಾಗಣೆ ನಿಯಮಗಳ ಬಗ್ಗೆ ನೇರ ಮಾಹಿತಿಯನ್ನು ಒದಗಿಸುತ್ತೇವೆ.',
-      locationTitle: 'ಹಾಸನ, ಕರ್ನಾಟಕ ವಿಳಾಸ',
-      locationDesc: 'ದಕ್ಷಿಣ ಭಾರತದ ಪ್ರಮುಖ ಶುಂಠಿ ಬೆಳೆಯುವ ಪ್ರದೇಶದ ಕೇಂದ್ರ ಸ್ಥಾನದಲ್ಲಿದೆ.',
-      growerTitle: 'ನೇರ ಬೆಳೆಗಾರರ ಜಾಲ',
-      growerDesc: 'ಸ್ಥಳೀಯ ರೈತರಿಂದ ಮತ್ತು ಸಂಗ್ರಹಣಾ ಕೇಂದ್ರಗಳಿಂದ ನೇರ ಸಂಗ್ರಹ.',
-      commTitle: 'ಪಾರದರ್ಶಕ ವಾಣಿಜ್ಯ ಸಂವಹನ',
-      commDesc: 'ಪ್ರತಿಯೊಂದು ವಿಚಾರಣೆಗೂ ನಿಖರವಾದ ಲಭ್ಯತೆ ಮತ್ತು ವಿತರಣಾ ನಿಯಮಗಳೊಂದಿಗೆ ತ್ವರಿತ ಉತ್ತರ.',
       credentialsBadge: 'ನೋಂದಾಯಿತ ಸಂಸ್ಥೆ',
-      enterpriseType: 'ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ಆಮದು ಮತ್ತು ರಫ್ತು',
+      enterpriseType: 'ಭಾರತೀಯ ಕೃಷಿ ರಫ್ತುದಾರರು (ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್)',
       contactPersonLabel: 'ಸಂಪರ್ಕ ವ್ಯಕ್ತಿ',
-      phoneLabel: 'ನೇರ ದೂರವಾಣಿ / WhatsApp',
+      phoneLabel: 'ದೂರವಾಣಿ ಸಂಖ್ಯೆ',
       addressLabel: 'ನೋಂದಾಯಿತ ವಿಳಾಸ',
-      gstinLabel: 'ಜಿಎಸ್‌ಟಿಐಎನ್ (GSTIN)',
+      gstinLabel: 'ಸರ್ಕಾರಿ ಜಿಎಸ್‌ಟಿ ಸಂಖ್ಯೆ (GSTIN)',
+      websiteLabel: 'ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್',
     },
     products: {
-      badge: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
-      title: 'ರಫ್ತು ಶುಂಠಿ ಉತ್ಪನ್ನಗಳು',
+      badge: 'ರಫ್ತು ಉತ್ಪನ್ನಗಳು',
+      title: 'ಕೃಷಿ ಮತ್ತು ಸಾಂಬಾರ ರಫ್ತು ವಿಭಾಗಗಳು',
       description:
-        'ನಾವು ಭಾರತೀಯ ಶುಂಠಿಯನ್ನು ಎರಡು ಪ್ರಮುಖ ರೂಪಗಳಲ್ಲಿ ಪೂರೈಸುತ್ತೇವೆ: ಇಡೀ ಶುಂಠಿ (Whole) ಮತ್ತು ಪುಡಿಮಾಡಿದ/ಪುಡಿ ಶುಂಠಿ (Crushed/Ground). ಖರೀದಿದಾರರ ಅಗತ್ಯಕ್ಕೆ ಅನುಗುಣವಾಗಿ ಪ್ಯಾಕೇಜಿಂಗ್ ಮತ್ತು ಪ್ರಮಾಣವನ್ನು ಚರ್ಚಿಸಲಾಗುತ್ತದೆ.',
+        'ಅಂತರರಾಷ್ಟ್ರೀಯ ಕಂಟೇನರ್ ರಫ್ತಿಗಾಗಿ ನೇರವಾಗಿ ಕೃಷಿ ಭೂಮಿಯಿಂದ ಸಿದ್ಧಪಡಿಸಲಾದ ಭಾರತೀಯ ಶುಂಠಿ, ಮಸಾಲೆಗಳು ಮತ್ತು ದೀರ್ಘಕಾಲ ಬಾಳಿಕೆ ಬರುವ ಕೃಷಿ ಉತ್ಪನ್ನಗಳು.',
       hsVerificationNote:
-        'ಗಮನಿಸಿ: ಎಚ್‌ಎಸ್ ಕೋಡ್‌ಗಳು (091011 ಮತ್ತು 091012) ಅಂತಾರಾಷ್ಟ್ರೀಯ ವ್ಯಾಪಾರ ವರ್ಗೀಕರಣದ ಉಲ್ಲೇಖಗಳಾಗಿದ್ದು, ನಿರ್ದಿಷ್ಟ ಸಾಗಣೆಗಳಿಗಾಗಿ ಭಾರತೀಯ ಕಸ್ಟಮ್ಸ್/ಡಿಜಿಎಫ್‌ಟಿ ಅಥವಾ ಆಮದು ಏಜೆಂಟರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿಕೊಳ್ಳಬೇಕು.',
-      enquireBtn: 'ಈಗಲೇ ವಿಚಾರಿಸಿ',
-      whole: {
-        name: 'ಶುಂಠಿ (ಇಡೀ / Ginger Whole)',
-        hsCode: '091011',
-        tag: 'ಕಚ್ಚಾ ಕೃಷಿ ಉತ್ಪನ್ನ',
-        description: 'ಸಂಪೂರ್ಣ ರೂಪದಲ್ಲಿ ಶುಂಠಿಯನ್ನು ಬಯಸುವ ಖರೀದಿದಾರರಿಗಾಗಿ ತಾಜಾ ಇಡೀ ಶುಂಠಿ ಕೊಂಬುಗಳು.',
-        origin: 'ಭಾರತ (ಕರ್ನಾಟಕ)',
-        form: 'ತಾಜಾ ಇಡೀ ಶುಂಠಿ ಕೊಂಬುಗಳು',
-        packaging: 'ಖರೀದಿದಾರರ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ (ಪೆಟ್ಟಿಗೆಗಳು / ಕ್ರೇಟುಗಳು / ಮೆಶ್ ಚೀಲಗಳು)',
-        pricing: 'ದಯವಿಟ್ಟು ವಿಚಾರಿಸಿ (ಸ್ಪಾಟ್ ದರವನ್ನು ಕೋರಿಕೆಯ ಮೇರೆಗೆ ನೀಡಲಾಗುತ್ತದೆ)',
-        btnText: 'ಇಡೀ ಶುಂಠಿಯ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ',
-      },
-      crushed: {
-        name: 'ಶುಂಠಿ (ಪುಡಿಮಾಡಿದ/ಪುಡಿ / Ginger Crushed/Ground)',
-        hsCode: '091012',
-        tag: 'ಸಂಸ್ಕರಿಸಿದ ಸಾಂಬಾರ ರೂಪ',
-        description: 'ಸಂಸ್ಕರಿಸಿದ ರೂಪದಲ್ಲಿ ಶುಂಠಿಯನ್ನು ಬಯಸುವ ಖರೀದಿದಾರರಿಗಾಗಿ ಪುಡಿಮಾಡಿದ ಅಥವಾ ಪುಡಿ ಶುಂಠಿ.',
-        origin: 'ಭಾರತ',
-        form: 'ಪುಡಿಮಾಡಿದ ಚೂರುಗಳು ಅಥವಾ ಒಣ ಶುಂಠಿ ಪುಡಿ',
-        packaging: 'ಖರೀದಿದಾರರ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ (ಫುಡ್ ಗ್ರೇಡ್ ಲೈನರ್ ಹೊಂದಿರುವ ಚೀಲಗಳು)',
-        pricing: 'ದಯವಿಟ್ಟು ವಿಚಾರಿಸಿ (ಸ್ಪಾಟ್ ದರವನ್ನು ಕೋರಿಕೆಯ ಮೇರೆಗೆ ನೀಡಲಾಗುತ್ತದೆ)',
-        btnText: 'ಪುಡಿಮಾಡಿದ ಶುಂಠಿಯ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ',
-      },
+        'ಕಸ್ಟಮ್ಸ್ ಸೂಚನೆ: ವ್ಯಾಪಾರ ಉಲ್ಲೇಖಕ್ಕಾಗಿ HS ಕೋಡ್‌ಗಳನ್ನು ನೀಡಲಾಗಿದೆ. ಸಾಗಣೆಗೆ ಮುನ್ನ ನಿಮ್ಮ ದೇಶದ ಕಸ್ಟಮ್ಸ್ ನಿಯಮಾವಳಿಗಳು ಮತ್ತು ಫೈಟೊಸ್ಯಾನಿಟರಿ ಷರತ್ತುಗಳನ್ನು ದೃಢೀಕರಿಸಿಕೊಳ್ಳಿ.',
+      enquireBtn: 'ರಫ್ತಿಗೆ ವಿಚಾರಿಸಿ',
+      originLabel: 'ಮೂಲ',
+      hsLabel: 'HS ಕೋಡ್ ಉಲ್ಲೇಖ',
     },
     contact: {
       badge: 'ಸಂಪರ್ಕಿಸಿ',
-      title: 'ನಿಮ್ಮ ಶುಂಠಿ ಆಮದು ಅಗತ್ಯಗಳಿಗಾಗಿ ಸಂಪರ್ಕಿಸಿ',
+      title: 'ನೇರ ವಾಣಿಜ್ಯ ವಿಚಾರಣೆಗಳು',
       description:
-        'ಕರ್ನಾಟಕದ ಹಾಸನದಲ್ಲಿರುವ ನಮ್ಮ ತಂಡವನ್ನು ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ. ಅಂತಾರಾಷ್ಟ್ರೀಯ ಆಮದುದಾರರು ಮತ್ತು ವಿತರಕರ ವ್ಯಾಪಾರ ವಿಚಾರಣೆಗಳನ್ನು ಸ್ವಾಗತಿಸುತ್ತೇವೆ.',
-      cardTitle: 'ಅಧಿಕೃತ ಸಂಸ್ಥೆಯ ವಿವರಗಳು',
-      contactPersonLabel: 'ಸಂಪರ್ಕ ವ್ಯಕ್ತಿ',
-      phoneLabel: 'ನೇರ ದೂರವಾಣಿ / WhatsApp',
-      addressLabel: 'ನೋಂದಾಯಿತ ವಿಳಾಸ',
-      gstinLabel: 'ಜಿಎಸ್‌ಟಿಐಎನ್ (GSTIN) ಸಂಖ್ಯೆ',
+        'ಉತ್ಪನ್ನಗಳ ವಿವರ, ಲಭ್ಯತೆ ಮತ್ತು ರಫ್ತು ದರಗಳಿಗಾಗಿ ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯ ಕರ್ಣ ಅವರನ್ನು ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ.',
+      cardTitle: 'ಸಂಸ್ಥೆಯ ಅಧಿಕೃತ ವಿವರಗಳು',
+      contactPersonLabel: 'ಮುಖ್ಯ ಪ್ರತಿನಿಧಿ',
+      phoneLabel: 'ದೂರವಾಣಿ / WhatsApp',
+      addressLabel: 'ಕಚೇರಿ ವಿಳಾಸ',
+      gstinLabel: 'ಜಿಎಸ್‌ಟಿ ಸಂಖ್ಯೆ (GSTIN)',
+      websiteLabel: 'ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್',
       callBtn: 'ಕರೆ ಮಾಡಿ: +91 7892204388',
-      whatsappBtn: 'WhatsApp ಮೂಲಕ ಸಂದೇಶ ಕಳುಹಿಸಿ',
+      whatsappBtn: 'WhatsApp ನಲ್ಲಿ ಸಂದೇಶ ಕಳುಹಿಸಿ',
       formTitle: 'ವ್ಯಾಪಾರ ವಿಚಾರಣೆ ನಮೂನೆ',
-      formSubtitle: 'ತ್ವರಿತ ವಾಣಿಜ್ಯ ಸಂವಹನಕ್ಕಾಗಿ ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಕೆಳಗೆ ಭರ್ತಿ ಮಾಡಿ.',
-      nameLabel: 'ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು / ಕಂಪನಿ ಹೆಸರು *',
-      namePlaceholder: 'ಉದಾ: ರಮೇಶ್ / Global Trading Co.',
+      formSubtitle: 'ತ್ವರಿತ ವಾಣಿಜ್ಯ ದರಪಟ್ಟಿ ಮತ್ತು ಲಭ್ಯತೆಯ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಕೆಳಗೆ ಭರ್ತಿ ಮಾಡಿ.',
+      nameLabel: 'ನಿಮ್ಮ ಹೆಸರು / ಕಂಪನಿ ಹೆಸರು *',
+      namePlaceholder: 'ನಿಮ್ಮ ಹೆಸರು ಅಥವಾ ಕಂಪನಿ ಹೆಸರನ್ನು ನಮೂದಿಸಿ',
       nameError: 'ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರು ಅಥವಾ ಸಂಸ್ಥೆಯ ಹೆಸರನ್ನು ನಮೂದಿಸಿ',
       contactLabel: 'ಇಮೇಲ್ ಅಥವಾ ದೂರವಾಣಿ ಸಂಖ್ಯೆ *',
-      contactPlaceholder: 'ಉದಾ: buyer@example.com ಅಥವಾ +91 98765 43210',
+      contactPlaceholder: 'ನಿಮ್ಮ ಇಮೇಲ್ ಅಥವಾ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
       contactError: 'ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಇಮೇಲ್ ಅಥವಾ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
-      productLabel: 'ಆಸಕ್ತಿಯುಳ್ಳ ಉತ್ಪನ್ನ *',
-      productWhole: 'ಶುಂಠಿ (ಇಡೀ / Whole) [HS 091011]',
-      productCrushed: 'ಶುಂಠಿ (ಪುಡಿಮಾಡಿದ/ಪುಡಿ / Crushed/Ground) [HS 091012]',
-      productBoth: 'ಎರಡೂ ಉತ್ಪನ್ನಗಳು (ಇಡೀ ಮತ್ತು ಪುಡಿ)',
+      productLabel: 'ಆಸಕ್ತಿಯುಳ್ಳ ಉತ್ಪನ್ನ ವಿಭಾಗ ಅಥವಾ ಸರಕು *',
+      productPlaceholder: 'ಉತ್ಪನ್ನ ವಿಭಾಗ ಅಥವಾ ಸರಕಿನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ',
+      productError: 'ದಯವಿಟ್ಟು ಉತ್ಪನ್ನ ಅಥವಾ ಸರಕಿನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ',
       quantityLabel: 'ಅಗತ್ಯವಿರುವ ಪ್ರಮಾಣ (ಐಚ್ಛಿಕ)',
-      quantityPlaceholder: 'ಉದಾ: 1 x 20ft / 40ft ಕಂಟೇನರ್, 10 ಮೆಟ್ರಿಕ್ ಟನ್, ಅಥವಾ ಟ್ರಯಲ್',
+      quantityPlaceholder: 'ಅಗತ್ಯವಿರುವ ಪ್ರಮಾಣವನ್ನು ನಮೂದಿಸಿ',
       messageLabel: 'ಹೆಚ್ಚುವರಿ ವಿವರಗಳು ಅಥವಾ ತಲುಪಬೇಕಾದ ಬಂದರು (ಐಚ್ಛಿಕ)',
-      messagePlaceholder: 'ತಲುಪಬೇಕಾದ ಬಂದರು, ಪ್ಯಾಕೇಜಿಂಗ್ ಅಗತ್ಯಗಳು ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳನ್ನು ಬರೆಯಿರಿ...',
+      messagePlaceholder: 'ನಿಮ್ಮ ಸಂದೇಶ ಅಥವಾ ಅಗತ್ಯಗಳನ್ನು ನಮೂದಿಸಿ',
       submitBtn: 'ವಿಚಾರಣೆಯನ್ನು ಪರಿಶೀಲಿಸಿ ಕಳುಹಿಸಿ',
-      whatsappSubmitBtn: 'WhatsApp ಮೂಲಕ ವಿಚಾರಣೆ ಕಳುಹಿಸಿ',
+      whatsappSubmitBtn: 'WhatsApp ಮೂಲಕ ಕಳುಹಿಸಿ',
       formNote: 'ಎಲ್ಲಾ ವಿಚಾರಣೆಗಳನ್ನು ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯ ಕರ್ಣ ಅವರು ನೇರವಾಗಿ ಗಮನಿಸುತ್ತಾರೆ.',
       modalTitle: 'ವಿಚಾರಣೆ ಸಿದ್ಧವಾಗಿದೆ',
-      modalSubtitle: 'ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಗೆ ನಿಮ್ಮ ವಿಚಾರಣೆಯನ್ನು ತಲುಪಿಸಲು ಆಯ್ಕೆ ಮಾಡಿ:',
-      modalWhatsAppBtn: 'ನೇರವಾಗಿ WhatsApp ಗೆ ಕಳುಹಿಸಿ (+91 7892204388)',
-      modalCopyBtn: 'ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಿ',
+      modalSubtitle: 'WhatsApp ಮೂಲಕ ಕಳುಹಿಸುವ ಮುನ್ನ ನಿಮ್ಮ ವಿಚಾರಣೆ ವಿವರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ:',
+      modalBuyerLabel: 'ಖರೀದಿದಾರರು / ಕಂಪನಿ',
+      modalContactLabel: 'ಸಂಪರ್ಕ ಮಾಹಿತಿ',
+      modalProductLabel: 'ಉತ್ಪನ್ನ / ಸರಕು',
+      modalQuantityLabel: 'ಅಗತ್ಯವಿರುವ ಪ್ರಮಾಣ',
+      modalMessageLabel: 'ಸಂದೇಶ / ಬಂದರು',
+      modalWhatsAppBtn: 'ನೇರವಾಗಿ WhatsApp ಗೆ ಕಳುಹಿಸಿ',
+      modalCopyBtn: 'ವಿಚಾರಣೆಯನ್ನು ನಕಲಿಸಿ',
       modalCopied: 'ನಕಲಿಸಲಾಗಿದೆ!',
       modalCloseBtn: 'ಮುಚ್ಚಿ',
     },
     footer: {
       description:
-        'ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ ನೋಂದಾಯಿತ ಭಾರತೀಯ ರಫ್ತು ಸಂಸ್ಥೆಯಾಗಿದ್ದು, ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ತಾಜಾ ಇಡೀ ಶುಂಠಿ ಮತ್ತು ಪುಡಿ ಶುಂಠಿಯನ್ನು ಪೂರೈಸಲು ಬದ್ಧವಾಗಿದೆ.',
+        'ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ ನೋಂದಾಯಿತ ಭಾರತೀಯ ಕೃಷಿ ರಫ್ತು ಸಂಸ್ಥೆಯಾಗಿದ್ದು, ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ತಾಜಾ ಶುಂಠಿ, ಸಾಂಬಾರ ಪದಾರ್ಥಗಳು ಮತ್ತು ದೀರ್ಘಕಾಲ ಬಾಳಿಕೆ ಬರುವ ಕೃಷಿ ಸರಕುಗಳನ್ನು ಪೂರೈಸಲು ಬದ್ಧವಾಗಿದೆ.',
       navHeading: 'ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು',
-      contactHeading: 'ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ',
+      contactHeading: 'ನೇರ ಸಂಪರ್ಕ',
       allRights: 'ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.',
       backToTop: 'ಮೇಲಕ್ಕೆ ಹೋಗಿ',
       location: 'ಹಾಸನ, ಕರ್ನಾಟಕ, ಭಾರತ',
     },
     mobileBar: {
-      call: 'ಕರ್ಣ ಅವರಿಗೆ ಕರೆ',
+      call: 'ನೇರ ಕರೆ',
       whatsapp: 'WhatsApp',
     },
   },

@@ -37,8 +37,8 @@ function MainApp() {
 
   const whatsappMessage =
     language === 'kn'
-      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಶುಂಠಿ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
-      : 'Hello Karna, I would like to enquire about ginger export with Kagili Impex Private Limited.';
+      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
+      : 'Hello Karna, I would like to enquire about agricultural commodity exports with Kagili Impex Private Limited.';
 
   return (
     <div className="min-h-screen bg-[#081426] text-white flex flex-col font-sans selection:bg-[#FFCC00] selection:text-[#081426] w-full max-w-full overflow-x-hidden">
@@ -58,7 +58,7 @@ function MainApp() {
         {/* 3. About Us: Company intro, Hassan, Karnataka credentials (dark theme) */}
         <About />
 
-        {/* 4. Our Products: Ginger (Whole) [HS 091011] & Ginger (Crushed/Ground) [HS 091012] */}
+        {/* 4. Our Products: 2 Categories - Ginger Products [HS 091011/12] & Spices/Long Shelf-Life Commodities */}
         <FeaturedProduct onEnquireClick={(product) => scrollToContact(product)} />
 
         {/* 5. Contact Us: Karna, Hassan address, phone, GSTIN, touch-friendly inquiry form */}

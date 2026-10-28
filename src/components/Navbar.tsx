@@ -41,8 +41,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onEnquireClick }) => {
 
   const whatsappMessage =
     language === 'kn'
-      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಶುಂಠಿ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
-      : 'Hello Karna, I would like to enquire about ginger export with Kagili Impex Private Limited.';
+      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
+      : 'Hello Karna, I would like to enquire about agricultural commodities export with Kagili Impex Private Limited.';
 
   return (
     <header className="sticky top-0 left-0 right-0 z-50 bg-[#081426] border-b border-[#174EA6]/30 shadow-lg w-full max-w-full">
@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onEnquireClick }) => {
             </span>
             <span className="text-slate-600 hidden md:inline">|</span>
             <span className="text-slate-300 hidden md:inline truncate">
-              {language === 'kn' ? 'ಭಾರತೀಯ ಶುಂಠಿ ರಫ್ತುದಾರರು · ಹಾಸನ, ಕರ್ನಾಟಕ' : 'Indian Ginger Exporters · Hassan, Karnataka'}
+              {language === 'kn' ? 'ಭಾರತೀಯ ಕೃಷಿ ಮತ್ತು ಸಾಂಬಾರ ಪದಾರ್ಥಗಳ ರಫ್ತುದಾರರು · ಹಾಸನ, ಕರ್ನಾಟಕ' : 'Indian Agricultural Produce & Spices Exporters · Hassan, Karnataka'}
             </span>
           </div>
           
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onEnquireClick }) => {
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all min-h-[38px] flex items-center justify-center cursor-pointer ${
+                className={`px-1.5 xs:px-2.5 py-1 sm:py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all min-h-[44px] flex items-center justify-center cursor-pointer ${
                   language === 'en'
                     ? 'bg-[#FFCC00] text-[#081426] shadow-xs font-black'
                     : 'text-slate-300 hover:text-white hover:bg-white/5 active:text-white'
@@ -128,12 +128,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onEnquireClick }) => {
                 aria-pressed={language === 'en'}
                 aria-label="Switch to English"
               >
-                English
+                <span className="hidden xs:inline">English</span>
+                <span className="xs:hidden">EN</span>
               </button>
               <button
                 type="button"
                 onClick={() => setLanguage('kn')}
-                className={`px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all min-h-[38px] flex items-center justify-center cursor-pointer ${
+                className={`px-1.5 xs:px-2.5 py-1 sm:py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all min-h-[44px] flex items-center justify-center cursor-pointer ${
                   language === 'kn'
                     ? 'bg-[#FFCC00] text-[#081426] shadow-xs font-black'
                     : 'text-slate-300 hover:text-white hover:bg-white/5 active:text-white'
@@ -141,7 +142,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onEnquireClick }) => {
                 aria-pressed={language === 'kn'}
                 aria-label="ಕನ್ನಡ ಭಾಷೆಗೆ ಬದಲಾಯಿಸಿ"
               >
-                ಕನ್ನಡ
+                <span className="hidden xs:inline">ಕನ್ನಡ</span>
+                <span className="xs:hidden">KN</span>
               </button>
             </div>
 

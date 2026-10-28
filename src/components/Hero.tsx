@@ -1,5 +1,4 @@
-import React from 'react';
-import { ArrowUpRight, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { GINGER_CORE_DATA } from '../data/productData';
 
@@ -14,8 +13,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
 
   const whatsappMessage =
     language === 'kn'
-      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಶುಂಠಿ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
-      : 'Hello Karna, I would like to enquire about ginger export with Kagili Impex Private Limited.';
+      ? 'ನಮಸ್ಕಾರ ಕರ್ಣ ಅವರೇ, ಕಾಗಿಲಿ ಇಂಪೆಕ್ಸ್ ಸಂಸ್ಥೆಯೊಂದಿಗೆ ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ರಫ್ತಿನ ಕುರಿತು ವಿಚಾರಿಸಲು ಇಚ್ಛಿಸುತ್ತೇನೆ.'
+      : 'Hello Karna, I would like to enquire about agricultural commodities export with Kagili Impex Private Limited.';
 
   return (
     <section id="home" className="relative bg-[#081426] pt-6 pb-12 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 border-b border-[#174EA6]/30 w-full overflow-hidden">
@@ -43,8 +42,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
               {h.description}
             </p>
 
-            {/* Action Buttons: Prominent Yellow "Enquire on WhatsApp" + Secondary "Our Products" */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-6 sm:mb-8">
+            {/* Action Buttons: Visible in laptop/desktop view, hidden in mobile view where persistent bottom quick-connect bar is present */}
+            <div className="hidden sm:flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-6 sm:mb-8">
               {/* Prominent Yellow WhatsApp Button */}
               <a
                 href={`https://wa.me/917892204388?text=${encodeURIComponent(whatsappMessage)}`}
@@ -68,50 +67,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
               </button>
             </div>
 
-            {/* 3 Concise Trust Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-5 border-t border-slate-800/80 w-full text-xs text-slate-300">
-              <div className="flex items-center gap-2 p-2.5 rounded-lg bg-[#0B1F3A] border border-[#174EA6]/40 min-h-[44px]">
-                <CheckCircle2 className="w-4 h-4 text-[#FFCC00] shrink-0" />
-                <span className="truncate">{h.trust1}</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-lg bg-[#0B1F3A] border border-[#174EA6]/40 min-h-[44px]">
-                <CheckCircle2 className="w-4 h-4 text-[#FFCC00] shrink-0" />
-                <span className="truncate">{h.trust2}</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-lg bg-[#0B1F3A] border border-[#174EA6]/40 min-h-[44px]">
-                <CheckCircle2 className="w-4 h-4 text-[#FFCC00] shrink-0" />
-                <span className="truncate">{h.trust3}</span>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right Column: User-provided Ginger Harvest Photograph */}
+          {/* Right Column: International Maritime Export Harbour Terminal Photograph */}
           <div className="lg:col-span-6 relative w-full min-w-0">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#174EA6]/40 bg-[#0B1F3A] flex flex-col">
-              {/* Full unobstructed ginger photo */}
-              <div className="relative w-full h-[250px] xs:h-[290px] sm:h-[360px] lg:h-[430px] overflow-hidden bg-[#081426]">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#174EA6]/40 bg-[#0B1F3A]">
+              {/* Full unobstructed harbour export photo without any text overlays or strips */}
+              <div className="relative w-full h-[260px] xs:h-[300px] sm:h-[380px] lg:h-[440px] overflow-hidden bg-[#081426]">
                 <img
                   src={GINGER_CORE_DATA.heroImageUrl}
-                  alt="Fresh whole Indian ginger rhizomes in harvest crates"
+                  alt="International container shipping port and export harbour cargo terminal"
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                 />
-              </div>
-
-              {/* Product Information Strip cleanly placed underneath so text never covers the photo */}
-              <div className="p-3 sm:p-4 bg-[#050E1B] border-t border-[#174EA6]/40 flex items-center justify-between gap-3">
-                <div className="min-w-0 flex-1">
-                  <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#FFCC00] block">
-                    {h.originTag}
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-white block">
-                    {h.imageCaption}
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold text-[#081426] bg-[#FFCC00] px-2.5 py-1 rounded shrink-0 shadow-xs">
-                  091011 / 091012
-                </span>
               </div>
             </div>
           </div>

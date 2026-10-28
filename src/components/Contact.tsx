@@ -9,6 +9,9 @@ import {
   Copy,
   AlertCircle,
   ExternalLink,
+  Globe,
+  X,
+  Check,
 } from 'lucide-react';
 import { GINGER_CORE_DATA } from '../data/productData';
 import { useLanguage } from '../context/LanguageContext';
@@ -20,11 +23,12 @@ interface ContactProps {
 export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
   const { t, language } = useLanguage();
   const c = t.contact;
+  const isKn = language === 'kn';
 
   const [formData, setFormData] = useState({
     name: '',
     contactInfo: '',
-    product: 'whole',
+    product: '',
     quantity: '',
     message: '',
   });
@@ -36,28 +40,12 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
 
   useEffect(() => {
     if (prefilledProduct) {
-      if (
-        prefilledProduct.toLowerCase().includes('crushed') ||
-        prefilledProduct.toLowerCase().includes('ground') ||
-        prefilledProduct.includes('ಪುಡಿ')
-      ) {
-        setFormData((prev) => ({ ...prev, product: 'crushed' }));
-      } else if (
-        prefilledProduct.toLowerCase().includes('whole') ||
-        prefilledProduct.includes('ಇಡೀ')
-      ) {
-        setFormData((prev) => ({ ...prev, product: 'whole' }));
-      } else if (
-        prefilledProduct.toLowerCase().includes('both') ||
-        prefilledProduct.includes('ಎರಡೂ')
-      ) {
-        setFormData((prev) => ({ ...prev, product: 'both' }));
-      }
+      setFormData((prev) => ({ ...prev, product: prefilledProduct }));
     }
   }, [prefilledProduct]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -70,12 +58,6 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
     }
   };
 
-  const getProductName = (key: string) => {
-    if (key === 'whole') return c.productWhole;
-    if (key === 'crushed') return c.productCrushed;
-    return c.productBoth;
-  };
-
   const validate = () => {
     const errors: Record<string, string> = {};
     if (!formData.name.trim()) {
@@ -84,22 +66,24 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
     if (!formData.contactInfo.trim()) {
       errors.contactInfo = c.contactError;
     }
+    if (!formData.product.trim()) {
+      errors.product = c.productError;
+    }
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
   const generateInquiryText = () => {
-    const isKn = language === 'kn';
     return [
-      `*${isKn ? 'ಶುಂಠಿ ರಫ್ತು ವಿಚಾರಣೆ' : 'GINGER EXPORT INQUIRY'} — KAGILI IMPEX PRIVATE LIMITED*`,
+      `*${isKn ? 'ಕೃಷಿ ರಫ್ತು ವಿಚಾರಣೆ' : 'AGRICULTURAL EXPORT INQUIRY'} — KAGILI IMPEX PRIVATE LIMITED*`,
       `------------------------------------------`,
       `• *${isKn ? 'ಖರೀದಿದಾರರ ಹೆಸರು' : 'Buyer Name'}*: ${formData.name.trim() || 'Prospective Buyer'}`,
       `• *${isKn ? 'ಸಂಪರ್ಕ ಮಾಹಿತಿ' : 'Contact (Email/Phone)'}*: ${formData.contactInfo.trim() || 'Not specified'}`,
-      `• *${isKn ? 'ಉತ್ಪನ್ನ' : 'Product'}*: ${getProductName(formData.product)}`,
-      `• *${isKn ? 'ಅಗತ್ಯವಿರುವ ಪ್ರಮಾಣ' : 'Target Quantity'}*: ${formData.quantity.trim() || 'To be discussed'}`,
-      formData.message.trim() ? `• *${isKn ? 'ಸಂದೇಶ' : 'Message'}*: ${formData.message.trim()}` : null,
+      `• *${isKn ? 'ಉತ್ಪನ್ನ / ಸರಕು' : 'Product / Commodity'}*: ${formData.product.trim() || (isKn ? 'ಸಾಮಾನ್ಯ ವಿಚಾರಣೆ' : 'General Inquiry')}`,
+      `• *${isKn ? 'ಅಗತ್ಯವಿರುವ ಪ್ರಮಾಣ' : 'Target Volume'}*: ${formData.quantity.trim() || (isKn ? 'ಚರ್ಚಿಸಲಾಗುವುದು' : 'To be discussed')}`,
+      formData.message.trim() ? `• *${isKn ? 'ಸಂದೇಶ / ಬಂದರು' : 'Notes / Port'}*: ${formData.message.trim()}` : null,
       `------------------------------------------`,
-      `*${isKn ? 'ಪ್ರತಿಕ್ರಿಯಿಸಲು ವಿನಂತಿ' : 'Requested Response'}*: ${isKn ? 'ದರಪಟ್ಟಿ ಮತ್ತು ಲಭ್ಯತೆ' : 'Pricing & Availability'}`,
+      `*${isKn ? 'ವೆಬ್‌ಸೈಟ್' : 'Official Portal'}*: www.kagilitraders.com`,
     ]
       .filter(Boolean)
       .join('\n');
@@ -131,29 +115,29 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-20 lg:py-24 bg-[#0B1F3A] text-white border-b border-[#174EA6]/30">
+    <section id="contact" className="py-12 sm:py-18 lg:py-20 bg-[#0B1F3A] text-white border-b border-[#174EA6]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-8 sm:mb-14">
+        <div className="max-w-3xl mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#081426] border border-[#174EA6]/50 text-[#FFCC00] text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#FFCC00]" />
             <span>{c.badge}</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight mb-3 leading-tight">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight mb-2.5 leading-tight">
             {c.title}
           </h2>
-          <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-300 leading-relaxed">
             {c.description}
           </p>
         </div>
 
-        {/* 2-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+        {/* 2-Column Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           
-          {/* Left Column: Official Enterprise Details (5 cols) */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6 w-full">
-            <div className="bg-[#081426] rounded-2xl border border-[#174EA6]/50 p-5 sm:p-8 shadow-xl space-y-5">
+          {/* Left Column: Official Enterprise Credentials (5 cols) */}
+          <div className="lg:col-span-5 space-y-4 sm:space-y-5 w-full">
+            <div className="bg-[#081426] rounded-2xl border border-[#174EA6]/50 p-5 sm:p-7 shadow-xl space-y-4">
               
               <div className="border-b border-slate-800 pb-3">
                 <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#FFCC00] block mb-1">
@@ -165,19 +149,19 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
               </div>
 
               {/* Verified Details */}
-              <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
+              <div className="space-y-3 text-xs sm:text-sm">
                 
                 {/* Contact Person */}
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
                   <UserCheck className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
-                  <div>
+                  <div className="min-w-0">
                     <span className="text-[10px] sm:text-[11px] text-slate-400 block">{c.contactPersonLabel}</span>
                     <span className="font-bold text-white text-xs sm:text-sm">{GINGER_CORE_DATA.contactPerson}</span>
                   </div>
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
                   <Phone className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
                   <div className="min-w-0 flex-1">
                     <span className="text-[10px] sm:text-[11px] text-slate-400 block">{c.phoneLabel}</span>
@@ -193,19 +177,19 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
                         onClick={copyPhoneToClipboard}
                         className="text-[11px] font-bold text-[#FFCC00] hover:text-white flex items-center gap-1 cursor-pointer py-1.5 px-2.5 rounded bg-[#081426] border border-[#174EA6]/40 min-h-[36px]"
                       >
-                        <Copy className="w-3 h-3" />
+                        {copiedPhone ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                         <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
                       </button>
                     </div>
                   </div>
                 </div>
 
-                {/* Address with Google Maps link */}
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
+                {/* Address */}
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
                   <MapPin className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
                   <div className="min-w-0 flex-1">
                     <span className="text-[10px] sm:text-[11px] text-slate-400 block">{c.addressLabel}</span>
-                    <p className="font-medium text-slate-200 leading-relaxed text-xs mb-2">
+                    <p className="font-medium text-slate-200 leading-relaxed text-xs mb-1.5 break-words">
                       {GINGER_CORE_DATA.address}
                     </p>
                     <a
@@ -220,12 +204,28 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
                   </div>
                 </div>
 
+                {/* Website */}
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
+                  <Globe className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <span className="text-[10px] sm:text-[11px] text-slate-400 block">{c.websiteLabel}</span>
+                    <a
+                      href="https://www.kagilitraders.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono font-bold text-[#FFCC00] hover:underline text-xs sm:text-sm block"
+                    >
+                      www.kagilitraders.com
+                    </a>
+                  </div>
+                </div>
+
                 {/* GSTIN */}
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/30">
                   <FileText className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
                   <div className="min-w-0">
                     <span className="text-[10px] sm:text-[11px] text-slate-400 block">{c.gstinLabel}</span>
-                    <span className="font-mono font-bold text-white text-xs sm:text-sm">
+                    <span className="font-mono font-bold text-white text-xs sm:text-sm tracking-wide block">
                       {GINGER_CORE_DATA.gstin}
                     </span>
                   </div>
@@ -233,7 +233,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
 
               </div>
 
-              {/* Direct Quick Action Buttons (Comfortable >=46px tap height) */}
+              {/* Direct Quick Action Buttons */}
               <div className="pt-2 space-y-2.5">
                 <a
                   href={`tel:${GINGER_CORE_DATA.phoneTel}`}
@@ -256,9 +256,9 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
             </div>
           </div>
 
-          {/* Right Column: Short Enquiry Form (7 cols) */}
+          {/* Right Column: Clean Commercial Enquiry Form (7 cols) */}
           <div className="lg:col-span-7 w-full">
-            <div className="bg-[#081426] rounded-2xl border border-[#174EA6]/50 p-5 sm:p-8 shadow-xl">
+            <div className="bg-[#081426] rounded-2xl border border-[#174EA6]/50 p-5 sm:p-7 shadow-xl">
               
               <div className="mb-5 sm:mb-6">
                 <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-1">
@@ -320,27 +320,28 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
                   )}
                 </div>
 
-                {/* Product Interested In Dropdown */}
+                {/* Product Category / Commodity Field (User-typed text input) */}
                 <div>
                   <label htmlFor="product" className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
                     {c.productLabel}
                   </label>
-                  <div className="relative">
-                    <select
-                      id="product"
-                      name="product"
-                      value={formData.product}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/50 text-base sm:text-sm text-white focus:outline-none focus:border-[#FFCC00] focus:ring-1 focus:ring-[#FFCC00] transition-all min-h-[48px] appearance-none cursor-pointer pr-10 font-medium"
-                    >
-                      <option value="whole" className="bg-[#0B1F3A] text-white">{c.productWhole}</option>
-                      <option value="crushed" className="bg-[#0B1F3A] text-white">{c.productCrushed}</option>
-                      <option value="both" className="bg-[#0B1F3A] text-white">{c.productBoth}</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
-                      ▼
-                    </div>
-                  </div>
+                  <input
+                    type="text"
+                    id="product"
+                    name="product"
+                    value={formData.product}
+                    onChange={handleChange}
+                    placeholder={c.productPlaceholder}
+                    className={`w-full px-4 py-3 rounded-xl bg-[#0B1F3A] border text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#FFCC00] focus:ring-1 focus:ring-[#FFCC00] transition-all min-h-[48px] ${
+                      formErrors.product ? 'border-red-500' : 'border-[#174EA6]/50'
+                    }`}
+                  />
+                  {formErrors.product && (
+                    <p className="text-xs text-red-400 mt-1 flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      {formErrors.product}
+                    </p>
+                  )}
                 </div>
 
                 {/* Target Quantity Field */}
@@ -375,7 +376,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
                   />
                 </div>
 
-                {/* Two Action Buttons on Mobile: Yellow Submit + Direct WhatsApp */}
+                {/* Action Buttons */}
                 <div className="pt-2 flex flex-col sm:flex-row items-stretch gap-3">
                   <button
                     type="submit"
@@ -408,50 +409,99 @@ export const Contact: React.FC<ContactProps> = ({ prefilledProduct }) => {
 
       </div>
 
-      {/* Inquiry Summary Modal */}
+      {/* Redesigned, High-End Inquiry Summary Modal */}
       {showSummaryModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-[#081426] border border-[#174EA6]/60 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-white animate-in fade-in duration-200">
-            <div className="border-b border-slate-800 pb-3 mb-4">
-              <h4 className="font-display text-lg font-bold text-white">
-                {c.modalTitle}
-              </h4>
-              <p className="text-xs text-slate-300 mt-1">
-                {c.modalSubtitle}
-              </p>
-            </div>
-
-            <pre className="bg-[#0B1F3A] p-4 rounded-xl text-xs font-mono text-slate-200 whitespace-pre-wrap leading-relaxed border border-[#174EA6]/30 mb-5 max-h-56 overflow-y-auto">
-              {generateInquiryText()}
-            </pre>
-
-            <div className="flex flex-col sm:flex-row gap-2.5">
-              <button
-                type="button"
-                onClick={handleWhatsAppSend}
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#FFCC00] active:bg-[#E5BD00] text-[#081426] font-bold text-xs uppercase tracking-wider shadow-sm min-h-[44px]"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>{c.modalWhatsAppBtn}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={copyInquirySummary}
-                className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0B1F3A] border border-[#174EA6]/60 text-white font-bold text-xs uppercase tracking-wider min-h-[44px]"
-              >
-                <Copy className="w-4 h-4" />
-                <span>{copiedSummary ? c.modalCopied : c.modalCopyBtn}</span>
-              </button>
-
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-150">
+          <div className="bg-[#081426] border border-[#174EA6]/70 rounded-2xl max-w-lg w-full p-5 sm:p-7 shadow-2xl text-white relative max-h-[92vh] overflow-y-auto">
+            
+            {/* Modal Header */}
+            <div className="flex items-start justify-between gap-3 border-b border-slate-800 pb-3.5 mb-4">
+              <div>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#FFCC00] block mb-0.5">
+                  KAGILI IMPEX PRIVATE LIMITED
+                </span>
+                <h4 className="font-display text-lg sm:text-xl font-bold text-white">
+                  {c.modalTitle}
+                </h4>
+              </div>
               <button
                 type="button"
                 onClick={() => setShowSummaryModal(false)}
-                className="inline-flex items-center justify-center py-3 px-4 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-bold uppercase tracking-wider min-h-[44px]"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                aria-label="Close dialog"
               >
-                {c.modalCloseBtn}
+                <X className="w-5 h-5" />
               </button>
             </div>
+
+            <p className="text-xs text-slate-300 mb-4">
+              {c.modalSubtitle}
+            </p>
+
+            {/* Structured Preview Card */}
+            <div className="bg-[#0B1F3A] rounded-xl p-3.5 sm:p-4 border border-[#174EA6]/40 space-y-2.5 mb-5 text-xs sm:text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-2">
+                <span className="text-slate-400 font-medium text-xs">{c.modalBuyerLabel}:</span>
+                <span className="font-bold text-white truncate">{formData.name.trim() || 'Prospective Buyer'}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-2">
+                <span className="text-slate-400 font-medium text-xs">{c.modalContactLabel}:</span>
+                <span className="font-mono text-white text-xs">{formData.contactInfo.trim()}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-2">
+                <span className="text-slate-400 font-medium text-xs">{c.modalProductLabel}:</span>
+                <span className="font-bold text-[#FFCC00] text-xs">{formData.product.trim() || (isKn ? 'ಸಾಮಾನ್ಯ ವಿಚಾರಣೆ' : 'General Inquiry')}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/80 pb-2">
+                <span className="text-slate-400 font-medium text-xs">{c.modalQuantityLabel}:</span>
+                <span className="font-medium text-white text-xs">{formData.quantity.trim() || (isKn ? 'ಚರ್ಚಿಸಲಾಗುವುದು' : 'To be discussed')}</span>
+              </div>
+              {formData.message.trim() && (
+                <div className="pt-1">
+                  <span className="text-slate-400 font-medium text-xs block mb-1">{c.modalMessageLabel}:</span>
+                  <p className="p-2 rounded bg-[#081426] text-slate-200 text-xs leading-relaxed border border-[#174EA6]/30">
+                    {formData.message.trim()}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Actions */}
+            <div className="space-y-2.5">
+              {/* Primary: Full-width yellow WhatsApp button with clear text and icon */}
+              <button
+                type="button"
+                onClick={handleWhatsAppSend}
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-[#FFCC00] hover:bg-[#FFE043] active:bg-[#E5BD00] text-[#081426] font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md min-h-[48px] cursor-pointer"
+              >
+                <MessageSquare className="w-4 h-4 shrink-0" />
+                <span>{c.modalWhatsAppBtn}</span>
+                <span className="hidden xs:inline-block font-mono text-[11px] bg-[#081426] text-[#FFCC00] px-2 py-0.5 rounded font-bold ml-1">
+                  +91 7892204388
+                </span>
+              </button>
+
+              {/* Secondary Actions: Copy and Close side-by-side */}
+              <div className="grid grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  onClick={copyInquirySummary}
+                  className="inline-flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-[#0B1F3A] hover:bg-[#122A4E] border border-[#174EA6]/60 text-white font-bold text-xs uppercase tracking-wider min-h-[44px] cursor-pointer"
+                >
+                  {copiedSummary ? <Check className="w-3.5 h-3.5 text-[#FFCC00]" /> : <Copy className="w-3.5 h-3.5 text-[#FFCC00]" />}
+                  <span className="truncate">{copiedSummary ? c.modalCopied : c.modalCopyBtn}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setShowSummaryModal(false)}
+                  className="inline-flex items-center justify-center py-3 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider min-h-[44px] cursor-pointer"
+                >
+                  {c.modalCloseBtn}
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       )}
